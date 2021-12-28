@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+</head>
+<body>
+    <h1>hello</h1>
+    <script src="https://apis.google.com/js/platform.js" async="async"></script>
+    <meta name="google-signin-client_id" content="764973064307-0rc7sv53hapavjs354c2fgr7agt415pd.apps.googleusercontent.com"/>
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+    <span id="GOOGLE_STATUS_1"></span>
+
+    <script>
+        // 登入之後
+        function onSignIn(googleUser) {
+            var profile = googleUser.getBasicProfile(),
+            target = document.getElementById("GOOGLE_STATUS_1"),
+            html = "";
+
+            html += "ID: " + profile.getId() + "<br/>";
+            html += "會員暱稱： " + profile.getName() + "<br/>";
+            html += "會員頭像：" + profile.getImageUrl() + "<br/>";
+            html += "會員 email：" + profile.getEmail() + "<br/>";
+            target.innerHTML = html;
+        }
+    </script>
+</body>
+</html>
